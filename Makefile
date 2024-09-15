@@ -13,7 +13,7 @@ build:
 	docker build --no-cache -t $(IMAGE_NAME):$(VERSION) $(DOCKERFILE_PATH)
 
 local-run:
-	docker run -itd --name redmine-create-ticket-webhook  --rm -p 5000:5000 \
+	docker run -itd --name $(IMAGE_NAME)  --rm -p 5000:5000 \
 	-e REDMINE_URL=${REDMINE_URL} \
 	-e REDMINE_API_KEY=${REDMINE_API_KEY} \
 	-e REDMINE_PROJECT_ID=${REDMINE_PROJECT_ID} \
@@ -31,7 +31,7 @@ push:
 	docker buildx build --no-cache --platform $(PLATFORMS) -t $(REGISTRY)/$(IMAGE_NAME):$(VERSION) --push $(DOCKERFILE_PATH)
 
 remote-run:
-	docker run -itd --name redmine-create-ticket-webhook  --rm -p 5000:5000 \
+	docker run -itd --name $(IMAGE_NAME)  --rm -p 5000:5000 \
 	-e REDMINE_URL=${REDMINE_URL} \
 	-e REDMINE_API_KEY=${REDMINE_API_KEY} \
 	-e REDMINE_PROJECT_ID=${REDMINE_PROJECT_ID} \

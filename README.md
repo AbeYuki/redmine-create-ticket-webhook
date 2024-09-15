@@ -14,7 +14,7 @@ export RDMINE_TRACKER_ID=
 docker image を build して起動させる
 ```bash
 make build
-make run
+make local-run
 ```
 
 alertmanger の webhook と仮定して redmine のチケット作成
@@ -25,6 +25,7 @@ make test
 
 ## remote registry push
 
+build して remote の registry に push
 ```bash
 make push
 ```
